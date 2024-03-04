@@ -23,6 +23,10 @@ RIGHT = "right"
 # Color 
 BLACK = "black"
 
+# Address
+HOST = "localhost"
+PORT = 9999
+
 
 if __name__ == "__main__":
     pass
