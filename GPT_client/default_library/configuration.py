@@ -14,6 +14,8 @@ class ConfigKeys(object):
     Config keywords
     """
     open_ai_secret_key = "open_ai_secret_key"
+    host_address = "host_address"
+    port_number = "port_number"
 # End ConfigKeys class
     
 
@@ -58,13 +60,35 @@ class DataConfiguration(BaseConfiguration):
     DataConfiguration 
     Confif class of working project
     """
-    pass
+    @property
+    def open_ai_secret_key(self) -> str:
+        """
+        Get open ai secret key
+        Return:
+            String
+        """
+        return self.common_data.get(ConfigKeys.open_ai_secret_key)
+    # End open_ai_secret_key function
 
+    @property
+    def host_address(self) -> str:
+        """
+        Get host address
+        Return:
+            String
+        """
+        return self.common_data.get(ConfigKeys.host_address)
+    # End host_address function
 
-
-
-
-
+    @property
+    def port_number(self) -> str:
+        """
+        Get port number
+        Return:
+            String
+        """
+        return int(self.common_data.get(ConfigKeys.port_number))
+    # End port_number function
 
 
 if __name__ == "__main__":

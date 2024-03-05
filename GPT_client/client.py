@@ -12,11 +12,12 @@ def main() -> int:
     """
     Run main function
     """
-    args = sys.argv
+    # args = sys.argv
+    args = ["", "LOCAL"]
     validate_args(args=args)
     environment = args[1].upper()
-    DataConfiguration(environment=environment)
-    gui.start()
+    config = DataConfiguration(environment=environment)
+    gui.start(config)
     return 0
 # End mian method
 

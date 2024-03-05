@@ -3,7 +3,10 @@ Create a GUI to display message
 """
 
 from tkinter import (Frame, Tk, Button, Text, Entry, END)
+from default_library.configuration import DataConfiguration
 from default_library.constants import (BOTTOM, TOP, LEFT, RIGHT, BLACK)
+from resource.socket import cr 
+
 
 class GUI(object):
     def __init__(self) -> None:
@@ -18,7 +21,7 @@ class GUI(object):
     # End init built-in
     
 
-    def start(self) -> None:
+    def start(self, config: DataConfiguration) -> None:
         """
         Start GUI and draw window
         Args: 
@@ -26,6 +29,8 @@ class GUI(object):
         Return:"
             None
         """
+        self.host = config.host_address
+        self.port = config.port_number
         self.window = Tk()
         self.draw_window()
         self.window.mainloop()
@@ -78,7 +83,7 @@ class GUI(object):
         self.message_box.config(state='normal')
         self.message_box.insert(END, ("Me: "+ message+"\n"))
         self.message_box.config(state="disabled")
-        return message
+        cr.send(message, self.host, self.port)
     # End get_message function
 # End GUI class
 

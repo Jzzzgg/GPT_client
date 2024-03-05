@@ -1,7 +1,6 @@
 """
 Utilities module for general shared code functions
 """
-
 # Custom libraries
 from default_library.exception import CustomEvironmentExcption
 from default_library.constants import (ALL_ENV)
@@ -22,6 +21,7 @@ def validate_args(args: list) -> None:
     if environment not in ALL_ENV:
         raise CustomEvironmentExcption("Wrong environment")
 # End validate_args function
+
     
 
 if __name__ == "__main__":
